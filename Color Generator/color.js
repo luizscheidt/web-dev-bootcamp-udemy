@@ -8,7 +8,7 @@ let z = 0
 btn.addEventListener('click', function(){
     const newColor = makeRandomColor();
     document.body.style.backgroundColor = newColor;
-    h1.innerText = (`rgb(${x}, ${y}, ${z})`);
+    h1.innerText = (`#rgb(${x}, ${y}, ${z})`);
 })
 
 const makeRandomColor = () => {
