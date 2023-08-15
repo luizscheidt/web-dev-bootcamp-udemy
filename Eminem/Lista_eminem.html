@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lista.css">
+    <title>Listando Eminem</title>
+</head>
+
+<body>
+    <span>
+        <h1> Melhores músicas: Eminem</h1>
+        <h2>Classifique e ordene as músicas do artista.</h2>
+        <form action="/tabela">
+            <p>
+                <label for="song">Adicione uma música a sua lista:</label>
+                <input id="song" type="text" placeholder="Música" name="song">
+            </p>
+            <p>
+                <label for="nota">Qual nota você dá para essa música:</label>
+                <input type="number" placeholder="Nota" id="nota" name="nota" min="0" max="100">
+            </p>
+            <button> Adicionar</button>
+        </form>
+    </span>
+
+    <span>
+        <h2>Qual seu alter ego preferido?</h2>
+        <form action="/eminem">
+            <label for="ss"> Slim Shady </label>
+            <input type="radio" name="ego" id="ss" value="ss">
+            <label for="mm"> Marshall Mathers </label>
+            <input type="radio" name="ego" id="mm" value="mm">
+            <label for="em"> Eminem </label>
+            <input type="radio" name="ego" id="em" value="em">
+            <button>Submit</button>
+        </form>
+    </span>
+
+    <span>
+        <h2>Qual desses albúns você prefere?</h2>
+        <form action="/album">
+            <label for="album">Escolha um álbum</label>
+            <select name="album" id="album">
+                <option value="sslp">The Slim Shady LP</option>
+                <option value="mmlp">The Marshall Mathers LP</option>
+                <option value="tes">The Eminem Show</option>
+                <option value="enc">Encore</option>
+                <option value="rel">Relapse</option>
+                <option value="rel">Relapse</option>
+                <option value="rec">Recovery</option>
+                <option value="mmlp2">The Marshall Mathers LP 2</option>
+                <option value="rev">Revival</option>
+                <option value="kam">Kamikaze</option>
+                <option value="mtbmb">Music to be Murdered By</option>
+            </select>
+            <button>Submit</button>
+        </form>
+    </span>
+
+    <footer>
+        <button id="retorno" <a href="pagina1eminem.html">Voltar para a página inicial</a></button>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+
+
+h1 {
+    color: #2ec4b6;
+    text-align: center;
+    text-decoration: #2ec4b6 underline;
+    font-size: 50px;
+    letter-spacing: 3px;
+    font-family:cursive, Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    color: white;
+}
+
+hr {
+    color:  #2ec4b6;
+}
+
+a {
+    text-decoration: None;
+    color: #2ec4b6;
+}
+
+.navbar {
+    background-color: aliceblue;
+}
+
+.navbar-toggler-icon {
+    color: #2ec4b6;
+}
+
+p{
+    font-family: Fira Sans, sans-serif;
+    line-height: 2;
+    color: white;
+    margin: 10px;
+}
+
+body{
+    background-color: #000;
+}
+
+.listas {
+    background-color: #2ec4b6;
+    width: 180px;
+    border: 5px solid #75fcee;
+    border-radius: 40px;
+    box-sizing:content-box;
+    padding: 10px 10px 10px 30px;
+    color: white;
+}
+
+a:hover {
+   color:palevioletred;
+   font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+#award {
+    border-radius: 30%;
+}
+
+
+section {
+    display: flex;  
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#topmusicas {
+    display: inline-block;
+    right: 0px;
+}
+
+li:hover {
+    padding: 5px;
+    color: gold;
+    background-color: black;
+    transition: 0.6s;
+}
+
+#discografia p {
+    font-size: 0.8em;
+}
+
+#albuns {
+    margin-top: 5rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.album {
+    width: 8rem;
+    height: 8rem;
+}
+
+#topmusicas {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+
+@media (max-width:992px) {
+    #award {
+        width: 400px;
+        height: 500px;
+    }
+}
