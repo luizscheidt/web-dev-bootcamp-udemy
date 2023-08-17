@@ -13,5 +13,5 @@ form.addEventListener("submit", function(evt) {
 });
 
 lista.addEventListener ('click', function(evt){
-    evt.target.remove();
+    evt.target.nodeName === 'LI' && evt.target.remove();
 })
