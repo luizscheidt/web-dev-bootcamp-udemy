@@ -12,3 +12,6 @@ form.addEventListener("submit", function(evt) {
     ul.append(newLI)
 });
 
+lista.addEventListener ('click', function(evt){
+    evt.target.nodeName === 'LI' && evt.target.remove();
+})
