@@ -4,14 +4,14 @@
     <%- include('partials/navbar') %>
     <h1>Welcome to the <%= name %> subreddit</h1>
     <h2> <%= description %> </h2>
-    <h3> Subscribers:  <%= subscribers %> </h3>
+    <h3> Current subscribers:  <%= subscribers %> </h3>
     <hr>
     <% for(let post of posts){ %>
         <div> 
            <h3><%= post.title %> </h3> 
            <p> <%= post.author %> </p>
            <% if(post.img){ %> 
-                <img src="<%= post.img %>" alt="">
+                <img src="<%= post.img %>" class="img-thumbnail" alt="">
             <% } %>
         </div>
     <% } %>
