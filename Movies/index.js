@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const { v4: uuid } = require("uuid");
+const methodOverride = require("method-override");
 
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -55,6 +57,26 @@ app.get("/movies/:id", (req, res) => {
   const { id } = req.params;
   const movie = movieList.find((m) => m.id === id);
   res.render("movies/show", { movie });
+});
+
+app.get("/movies/:id/edit", (req, res) => {
+  const { id } = req.params;
+  const movie = movieList.find((m) => m.id === id);
+  res.render("movies/edit", { movie });
+});
+
+app.patch("/movies/:id", (req, res) => {
+  const { id } = req.params;
+  const newDescription = req.body.description;
+  const movie = movieList.find((m) => m.id === id);
+  movie.description = newDescription;
+  res.redirect("/movies");
+});
+
+app.delete("/movies/:id", (req, res) => {
+  const { id } = req.params;
+  movieList = movieList.filter((m) => m.id !== id);
+  res.redirect("/movies");
 });
 
 app.listen(9000, () => {

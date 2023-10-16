@@ -10,5 +10,11 @@
     <p>id: <%= movie.id %></p>
     <p><%= movie.description %></p>
 
+    <form method="GET" action="/movies/<%=movie.id%>/edit">
+        <button>Edit this movie</button>
+      </form>
+    <form method="POST" action="/movies/<%=movie.id%>?_method=DELETE">
+        <button>Remove this movie</button>
+      </form>
     <a href="/movies">Back to your list</a>
 </html>

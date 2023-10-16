@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Change the descrition of the movie</h1>
+    <form method="POST" action="/movies/<%=movie.id%>?_method=PATCH">
+      <textarea name="description" id="description" cols="30" rows="10">
+<%= movie.description %> </textarea
+      >
+      <button>Submit change</button>
+    </form>
+  </body>
+</html>
