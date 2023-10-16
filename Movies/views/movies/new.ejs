@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Movie</title>
+  </head>
+  <body>
+    <h1>Add a Movie to your list</h1>
+    <form action="/movies" method="POST">
+      <section>
+        <label for="name">
+          What movie are you adding to your watch list?
+        </label>
+        <input type="text" name="name" id="name" />
+      </section>
+      <section>
+        <label for="year"> When was the movie released? </label>
+        <input type="text" name="year" id="year" />
+      </section>
+      <section>
+        <textarea name="description" id="description" cols="30" rows="10">
+Write a brief description of why your adding this movie
+        </textarea>
+      </section>
+      <button>Add movie</button>
+    </form>
+
+    <a href="/movies">Back to your list</a>
+  </body>
+</html>

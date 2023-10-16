@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+  </head>
+  <body>
+    <h1>Welcome to your movie list</h1>
+    <ul>
+      <% for(let m of movieList) { %>
+      <li><%= m.name %> <a href="/movies/<%= m.id %>">View more</a></li>
+      <% } %>
+    </ul>
+
+    <a href="/movies/new">Add a movie to your watchlist</a>
+  </body>
+</html>
