@@ -14,9 +14,9 @@
       <input type="float" name="price" id="price" placeholder="price" />
       <label for="cat">Category</label>
       <select name="category" id="cat">
-        <option value="fruit">Fruit</option>
-        <option value="vegetable">Vegetable</option>
-        <option value="dairy">Dairy</option>
+        <% for(let category of categories) { %>
+        <option value="<%=category%>"><%=category%></option>
+        <% } %>
       </select>
       <button>Submit</button>
     </form>
