@@ -10,6 +10,8 @@
     <h3><%= product.category %></h3>
     <h2>Price per unity: $<%= product.price %></h2>
 
-    <a href="/products">Go back to the full list</a>
+    <a href="/products/<%= product._id %>/edit">Edit this product</a>
+
+    <a href="/products">Go back to the initial page</a>
   </body>
 </html>
