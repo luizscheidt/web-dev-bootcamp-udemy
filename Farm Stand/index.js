@@ -100,6 +100,17 @@ app.delete("/products/:id", async (req, res) => {
   res.redirect("/products");
 });
 
+const handleValidationError = (err) => {
+  console.log(err);
+  return new AppError(`Validation Failed: ${err.message}`, 400);
+};
+
+app.use((err, req, res, next) => {
+  console.log(err.name);
+  if (err.name === "ValidationError") err = handleValidationError(err);
+  next(err);
+});
+
 app.use((err, req, res, next) => {
   const {status = 500, message = "Something went wrong"} = err;
   res.status(status).send(message);
