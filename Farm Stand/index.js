@@ -40,10 +40,14 @@ app.get("/products/new", (req, res) => {
   res.render("products/new", { categories });
 });
 
-app.post("/products", async (req, res) => {
-  const newProduct = new Product(req.body);
-  await newProduct.save();
-  res.redirect(`/products/${newProduct._id}`);
+app.post("/products", async (req, res, next) => {
+  try {
+    const newProduct = new Product(req.body);
+    await newProduct.save();
+    res.redirect(`/products/${newProduct._id}`);
+  } catch (e) {
+    next(e);
+  }
 });
 
 app.get("/products/:id", async (req, res, next) => {
@@ -64,12 +68,16 @@ app.get("/products/:id/edit", async (req, res, next) => {
   res.render("products/edit", { product, categories });
 });
 
-app.put("/products/:id", async (req, res) => {
-  const { id } = req.params;
-  const product = await Product.findByIdAndUpdate(id, req.body, {
-    runValidators: true,
-  });
-  res.redirect(`/products/${product._id}`);
+app.put("/products/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findByIdAndUpdate(id, req.body, {
+      runValidators: true,
+    });
+    res.redirect(`/products/${product._id}`);
+  } catch (e) {
+    next(e);
+  }
 });
 
 app.delete("/products/:id", async (req, res) => {
