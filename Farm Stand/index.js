@@ -7,9 +7,10 @@ const methodOverride = require("method-override");
 const AppError = require("./AppError");
 
 const Product = require("./models/product");
+const Farm = require("./models/farm");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/farmStand")
+  .connect("mongodb://127.0.0.1:27017/farmStandTake2")
   .then(() => {
     console.log("Mongo connection open");
   })
@@ -31,6 +32,28 @@ function wrapAsync(fn) {
     fn(req, res, next).catch((e) => next(e));
   };
 }
+
+// FARM ROUTES
+
+app.get("/farms", async (req, res) => {
+  const farms = await Farm.find({});
+  res.render("farms/index", {farms});
+});
+
+app.get("/farms/new", (req, res) => {
+  res.render("farms/new", {categories});
+});
+
+app.post(
+  "/farms",
+  wrapAsync(async (req, res) => {
+    const farm = new Farm(req.body);
+    await farm.save();
+    res.redirect("/farms");
+  })
+);
+
+// PRODUCT ROUTES
 
 app.get(
   "/products",
