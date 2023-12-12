@@ -15,6 +15,9 @@
           ><%= product.category %></a
         >
       </li>
+      <li>
+        <a href="/farms/<%= product.farm._id %>"><%= product.farm.name %></a>
+      </li>
     </ul>
     <a href="/products/<%= product._id %>/edit">Edit this product</a>
     <form action="/products/<%= product._id %>?_method=DELETE" method="POST">

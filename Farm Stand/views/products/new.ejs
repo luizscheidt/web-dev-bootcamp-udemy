@@ -6,8 +6,9 @@
     <title>New Product</title>
   </head>
   <body>
-    <h1>Add a new product</h1>
-    <form action="/farms/<%= id %>/products" method="post">
+    <h1><%= farm.name %></h1>
+    <h2>Add a new product</h2>
+    <form action="/farms/<%= farm._id %>/products" method="post">
       <label for="prod">Product name</label>
       <input type="text" name="name" id="name" placeholder="product" />
       <label for="price">Price</label>
@@ -21,6 +22,6 @@
       <button>Submit</button>
     </form>
 
-    <a href="/products">Go back to the initial page</a>
+    <a href="/farms/<%= farm._id %>">Go back to <%= farm.name %></a>
   </body>
 </html>
