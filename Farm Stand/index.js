@@ -25,7 +25,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-const categories = ["fruit", "vegetables", "dairy"];
+const categories = ["fruit", "vegetable", "dairy"];
 
 function wrapAsync(fn) {
   return function (req, res, next) {
@@ -39,6 +39,14 @@ app.get("/farms", async (req, res) => {
   const farms = await Farm.find({});
   res.render("farms/index", {farms});
 });
+
+app.delete(
+  "/farms/:id",
+  wrapAsync(async (req, res) => {
+    const deletedFarm = await Farm.findByIdAndDelete(req.params.id);
+    res.redirect("/farms");
+  })
+);
 
 app.get("/farms/new", (req, res) => {
   res.render("farms/new", {categories});
