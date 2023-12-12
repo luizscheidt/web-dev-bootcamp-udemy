@@ -61,6 +61,29 @@ app.get(
     res.render("farms/details", {farm});
   })
 );
+
+app.get(
+  "/farms/:id/products/new",
+  wrapAsync(async (req, res) => {
+    const {id} = req.params;
+    res.render("products/new", {categories, id});
+  })
+);
+
+app.post(
+  "/farms/:id/products",
+  wrapAsync(async (req, res) => {
+    const {id} = req.params;
+    const farm = await Farm.findById(id);
+    const {name, price, category} = req.body;
+    const product = new Product({name, price, category});
+    farm.products.push(product);
+    product.farm = farm;
+    await farm.save();
+    await product.save();
+    res.send(farm);
+  })
+);
 // PRODUCT ROUTES
 
 app.get(
