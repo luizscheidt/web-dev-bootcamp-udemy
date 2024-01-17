@@ -116,7 +116,10 @@ app.post(
   "/products",
   wrapAsync(async (req, res, next) => {
     const newProduct = new Product(req.body);
+    const farms = await Farm.find({});
+    newProduct.farm.push(farms);
     await newProduct.save();
+    await farms.save();
     res.redirect(`/products/${newProduct._id}`);
   })
 );
