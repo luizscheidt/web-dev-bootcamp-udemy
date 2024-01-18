@@ -44,9 +44,14 @@ function wrapAsync(fn) {
 
 // FARM ROUTES
 
+app.use((req, res, next) => {
+  res.locals.messages = req.flash("info");
+  next();
+});
+
 app.get("/farms", async (req, res) => {
   const farms = await Farm.find({});
-  res.render("farms/index", {farms, messages: req.flash("info")});
+  res.render("farms/index", {farms});
 });
 
 app.delete(
@@ -99,6 +104,7 @@ app.post(
     product.farm = farm;
     await farm.save();
     await product.save();
+    req.flash("info", "New product added to your farm!");
     res.redirect(`/farms/${id}`);
   })
 );
