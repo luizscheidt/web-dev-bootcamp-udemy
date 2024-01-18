@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const session = require("express-session");
+const flash = require("connect-flash");
 
 const AppError = require("./AppError");
 
@@ -22,8 +24,15 @@ mongoose
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+const sessionOptions = {
+  secret: "SECRET",
+  resave: false,
+  saveUninitialized: false,
+};
+app.use(session(sessionOptions));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 const categories = ["fruit", "vegetable", "dairy"];
 
@@ -37,7 +46,7 @@ function wrapAsync(fn) {
 
 app.get("/farms", async (req, res) => {
   const farms = await Farm.find({});
-  res.render("farms/index", {farms});
+  res.render("farms/index", {farms, messages: req.flash("info")});
 });
 
 app.delete(
@@ -57,6 +66,7 @@ app.post(
   wrapAsync(async (req, res) => {
     const farm = new Farm(req.body);
     await farm.save();
+    req.flash("info", "New farm created!");
     res.redirect("/farms");
   })
 );
