@@ -38,6 +38,21 @@ app.post("/register", async (req, res) => {
   res.redirect("/");
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.post("/login", async (req, res) => {
+  const {password, username} = req.body;
+  const user = await User.findOne({username});
+  const validUser = await bcrypt.compare(password, user.password);
+  if (validUser) {
+    res.send("Great!");
+  } else {
+    res.send("Try again");
+  }
+});
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
