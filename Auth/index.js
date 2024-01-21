@@ -21,6 +21,13 @@ app.set("views", "views");
 app.use(express.urlencoded({extended: true}));
 app.use(session({secret: "secreto"}));
 
+const requireLogin = (req, res, next) => {
+  if (!req.session.user_id) {
+    return res.redirect("/login");
+  }
+  next();
+};
+
 app.get("/register", (req, res) => {
   res.render("Register");
 });
@@ -58,11 +65,12 @@ app.post("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-app.get("/secret", (req, res) => {
-  if (!req.session.user_id) {
-    return res.redirect("/login");
-  }
+app.get("/secret", requireLogin, (req, res) => {
   res.render("secret");
+});
+
+app.get("/topsecret", requireLogin, (req, res) => {
+  res.send("TTop secret");
 });
 
 app.listen(3000, () => {
