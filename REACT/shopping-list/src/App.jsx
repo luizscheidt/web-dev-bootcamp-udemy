@@ -5,10 +5,10 @@ import './App.css'
 import ShoppingList from './ShoppingList'
 
 const data = [
-  {item: 'eggs', quantity: 12, completed: false},
-  {item: 'milk', quantity: 6, completed: false},
-  {item: 'coffee', quantity: 1, completed: true},
-  {item: 'potatoes', quantity: 8, completed: true},
+  {id: 1, item: 'eggs', quantity: 12, completed: true},
+  {id: 2, item: 'milk', quantity: 6, completed: false},
+  {id: 3, item: 'coffee', quantity: 1, completed: true},
+  {id: 4, item: 'potatoes', quantity: 8, completed: false},
 ]
 
 function App() {

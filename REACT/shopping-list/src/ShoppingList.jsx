@@ -1,13 +1,12 @@
+import ShoppingListItem from "./ShoppingListItem";
+
 export default function ShoppingList({items}) {
     return (
         <>
         <ul>
-            {items.map(i => 
-            <li style={{color: i.completed ? "black":  "grey", 
-                        textDecoration: i.completed ? 'none' : 'line-through'}}>
-                {i.item} - {i.quantity}
-            </li>
-            )}
+            {items.map((i) => (
+                <ShoppingListItem key={i.id} {...i}/>
+            ))}
         </ul>
         </>
     )
