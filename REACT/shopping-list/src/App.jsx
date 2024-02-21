@@ -6,6 +6,9 @@ import ShoppingList from './ShoppingList'
 import PorpertyList from './PropertyList'
 import Clicker from './Clicker'
 import Counter from './Counter'
+import Toggler from './Toggler'
+import BoxList from './BoxList'
+import Box from './Box'
 
 const data = [
   {id: 1, item: 'eggs', quantity: 12, completed: true},
@@ -23,6 +26,17 @@ const properties = [
   { id: 129035, name: "Gold Miner Campground", rating: 4.69, price: 96 },
 ];
 
+const colors = ['#FF6633',
+                '#FFB399',
+                '#FF33FF',
+                '#FFFF99',
+                '#00B3E6', 
+                '#E6B333',
+                '#3366E6',
+                '#999966',
+                '#99FF99', 
+                '#B34D4D',]
+
 function App() {
   
 
@@ -30,7 +44,9 @@ function App() {
     // <ShoppingList items={data}/>
     // <PorpertyList properties={properties}/>
     // <Clicker buttonText='Dont click me' message='I TOLD YOU NOT TO'/>
-    <Counter/>
+    // <Counter/>
+    // <Toggler/>
+    <BoxList colors={colors}/>
   )
 }
 

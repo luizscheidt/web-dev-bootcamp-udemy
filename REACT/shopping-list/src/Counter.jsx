@@ -5,8 +5,8 @@ export default function Counter() {
     return (
         <div>
             <p>The number is: {num} </p>
-            <button onClick={()=> setNum(num+1)}> Increment number </button>
             <button onClick={()=> setNum(num-1)}> Decrement number </button>
+            <button onClick={()=> setNum(num+1)}> Increment number </button>
         </div>
     )
 } 
