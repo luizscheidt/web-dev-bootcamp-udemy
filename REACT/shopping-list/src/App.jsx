@@ -5,6 +5,7 @@ import './App.css'
 import ShoppingList from './ShoppingList'
 import PorpertyList from './PropertyList'
 import Clicker from './Clicker'
+import Counter from './Counter'
 
 const data = [
   {id: 1, item: 'eggs', quantity: 12, completed: true},
@@ -28,7 +29,8 @@ function App() {
   return (
     // <ShoppingList items={data}/>
     // <PorpertyList properties={properties}/>
-    <Clicker buttonText='Dont click me' message='I TOLD YOU NOT TO'/>
+    // <Clicker buttonText='Dont click me' message='I TOLD YOU NOT TO'/>
+    <Counter/>
   )
 }
 
