@@ -1,11 +1,11 @@
 import Dice from './Dice'
+import LuckyN from './LuckyN'
 
 function App() {
 
   return (
     <>
-    <Dice dice={[5, 2, 2]}/>
-    <Dice dice={[1, 2, 8]}/>
+      <LuckyN numDice={4} target={15}/>
     </>
   )
 }
