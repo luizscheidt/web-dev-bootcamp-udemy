@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-      <LuckyN numDice={2} winFunction={lessThen4}/>
-      <LuckyN numDice={2} winFunction={sameDice}/>
+      <LuckyN title="Roll less than 4" numDice={2} winFunction={lessThen4}/>
+      <LuckyN title="Roll the same number" numDice={2} winFunction={sameDice}/>
     </>
   )
 }
