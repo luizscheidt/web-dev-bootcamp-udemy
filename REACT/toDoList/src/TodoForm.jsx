@@ -20,14 +20,14 @@ export default function TodoForm({addTodo}){
         <ListItem>
             <form onSubmit={handleSubmit}>
             <TextField id="outlined-basic" 
-            label="Outlined" 
+            label="Add to do" 
             variant="outlined" 
             onChange={handleChange} 
             value={text}
             InputProps = {{
                 endAdornment: <InputAdornment position="end">
                 <IconButton
-                  aria-label="toggle password visibility"
+                  aria-label="create todo"
                   edge="end"
                   type="submit"
                 >
